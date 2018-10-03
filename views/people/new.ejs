@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+<h1>Adicionar nova pessoa</h1>
+
+<form method="POST" action="/people" id='new-form'>
+	<input type='text' name='person[name]' placeholder='Nome da Figura Pública'>
+	<input type='text' name='person[title]' placeholder='Título da Figura Pública, ex: Vereador, vereadora, etc.'>
+	<textarea name='person[text]' form='new-form'></textarea>
+	<input name='person[picture]' type='file'>
+	<button>Salvar</button>
+</form>
+<% include ../partials/footer %>

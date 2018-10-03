@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<main class='ui main text container segment'>
+	<h1>Editar <%= place.name %></h1>
+	<form class="ui form" method="POST" action="/places/<%= place._id %>?_method=PUT" id='new-form' enctype="multipart/form-data">
+	  <div class="field">
+			<div class='main-image' id='main-image' style='background-image: url(<%= place.picture %>)'></div>
+			<label for='picture'>Alterar imagem:</label>
+			<input class='ui teal basic button' name='picture' type='file' accept=".jpg,.png" id='image-file'>	
+	  	</div>
+	  	<div class="field">
+	  		<label for='name'>Alterar nome:</label>
+			<input type='text' name='name' placeholder='Nome da Figura Pública' value='<%= place.name %>' required>  	
+	  	</div>
+		<div class="field">
+			<label for='text'>Alterar texto:</label>
+			<textarea name='text' form='new-form' required="required"><%= place.text %></textarea>
+		</div>
+		<input type="hidden" id='img-flag' name='imagechange' value='n'>
+		<button class='ui teal basic button'>Salvar</button>
+		<a class='ui purple basic button' href="/places">Voltar</a>
+	</form>
+
+</main>
+<script> 
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                // document.getElementById('main-image').setAttribute('src', e.target.result);
+                document.getElementById('main-image').style.backgroundImage = 'url(' + e.target.result + ')';
+            };
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+	document.getElementById('image-file').onchange = function (){
+		readURL(this);
+		document.getElementById('img-flag').value = 'y';
+	};
+</script>
+
+<% include ../partials/footer %>

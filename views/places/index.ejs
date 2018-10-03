@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<div class="ui main text container segment">
+	<h1>Todos os locais</h1>
+
+	<ul class='view__list'>
+	<% places.forEach(function(place) {%>
+		<li class='view__item ui container segment'>
+			<div class="view__picture">
+				<img class='view__img' src="<%= place.qr %>" alt="">	
+			</div>
+			<div class="view__details">
+				<a class='view__title' href="/places/<%= place._id %>"><%= place.name %></a>
+				<form action="/places/<%= place._id %>?_method=DELETE" method="POST">
+					<a class='ui teal basic button' href="/places/<%= place._id %>/edit">Editar</a>
+					<!-- <button class='ui red basic button' >Deletar</button> -->
+				</form>
+			</div>
+		</li>
+	<%});%>
+	</ul>
+</div>
+<% include ../partials/footer %>

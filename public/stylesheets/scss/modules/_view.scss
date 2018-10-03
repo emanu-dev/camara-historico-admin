@@ -1,0 +1,33 @@
+.view__list {
+	padding: 0;
+
+	.view__item {
+		background-color: rgba(0,0,0,.01);
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		padding: 2rem;
+
+		.view__img {
+			height: auto;
+			width: 100%;
+		}		
+
+		.view__details {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 2rem;
+
+			.view__title {
+				font-size: 1.6rem;
+				text-transform: capitalize;
+				margin-top: 1.2rem;
+			}			
+		}
+	}	
+}
+
+
+
+
+

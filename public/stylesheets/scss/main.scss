@@ -1,0 +1,50 @@
+@import 'base/reset';
+
+@import 'vendor/semantic';
+
+.ui.main {
+	margin-top: 4rem;
+}
+
+.ui.button {
+	&:hover {
+		box-shadow: 0px 3px 9px -1px rgba(0,0,0,0.3);
+	}
+}
+
+.container.show {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	.show__card {
+		margin-bottom: 2rem;
+	}
+}
+
+.ui.message {
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	padding: 2rem;
+	position: fixed;
+	right: 2rem;
+	z-index: 999;
+}
+
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@import 'modules/main-image';
+@import 'modules/login';
+@import 'modules/view';
+@import 'modules/footer';

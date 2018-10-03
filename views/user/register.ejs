@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<div class="ui main text container segment">
+	<h1>Registrar novo usuário</h1>
+
+	<form action='/register' method='post'>
+		<input type='text' name='name' placeholder='Nome'>
+	    <input type='text' name='username' placeholder='Email'>
+	    <input type='password' name='password' placeholder='Senha'>
+	    <button>Registrar</button>
+	</form>
+</div>
+<% include ../partials/footer %>
