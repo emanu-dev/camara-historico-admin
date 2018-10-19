@@ -23,12 +23,22 @@ router.get('/people/gallery', (req, res) => {
 		if (err) {
 			console.log(err);
 		}else {
+			let newPeople = [];
 			people.forEach((person) => {
 				let qrImg = qr.imageSync(`${path}${person._id}`, { type: 'png' });
 				let qr64 = `data:image/png;base64,${qrImg.toString('base64')}`;
-				person.qr = qr64; 
+				person['qr'] = qr64; 
+
+				let newPerson = {
+					name : person.title + ' ' + person.name,
+					picture : person.picture,
+					qr : qr64
+				};
+
+				newPeople.push(newPerson);
 			});
-			res.send(people);
+
+			res.send(newPeople);
 		}
 	});
 });
