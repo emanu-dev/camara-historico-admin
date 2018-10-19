@@ -29,6 +29,21 @@ router.get('/showplace/:id', (req, res) => {
 	});
 });
 
+router.get('/places/gallery', (req, res) => {
+	Places.find({}, (err, places) => {
+		if (err) {
+			console.log(err);
+		}else {
+			places.forEach((place) => {
+				let qrImg = qr.imageSync(`${path}${place._id}`, { type: 'png' });
+				let qr64 = `data:image/png;base64,${qrImg.toString('base64')}`;
+				place.qr = qr64; 
+			});
+			res.send(places);
+		}
+	});
+});
+
 router.get('/places', isLoggedIn, (req, res) => {
 	Places.find({}, (err, places) => {
 		if (err) {

@@ -18,6 +18,21 @@ cloudinary.config({
 	api_secret: '2657rKR89tYHYKOZ5xPKvZd4ZMM'
 });
 
+router.get('/people/gallery', (req, res) => {
+	People.find({}, (err, people) => {
+		if (err) {
+			console.log(err);
+		}else {
+			people.forEach((person) => {
+				let qrImg = qr.imageSync(`${path}${person._id}`, { type: 'png' });
+				let qr64 = `data:image/png;base64,${qrImg.toString('base64')}`;
+				person.qr = qr64; 
+			});
+			res.send(people);
+		}
+	});
+});
+
 router.get('/showperson/:id', (req, res) => {
 	People.findById(req.params.id, (err, foundPerson) => {
 		if (err) {
