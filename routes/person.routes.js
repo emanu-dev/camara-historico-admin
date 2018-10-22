@@ -30,8 +30,10 @@ router.get('/people/gallery', (req, res) => {
 				person['qr'] = qr64; 
 
 				let newPerson = {
-					name : person.title + ' ' + person.name,
+					title : person.title,
+					name :  person.name,
 					picture : person.picture,
+					period: person.period,
 					qr : qr64
 				};
 

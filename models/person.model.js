@@ -18,6 +18,9 @@ const personSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	period: {
+		type: String,
+	},	
 	modifiedAt: {
 		type: Date,
 		default: Date.now()
