@@ -24,12 +24,21 @@
 }
 
 .ui.message {
-	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	padding: 2rem;
 	position: fixed;
+	top: 2rem;
 	right: 2rem;
-	z-index: 999;
+	z-index: 999;	
+	
+	&.--enter {
+		animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	}
+
+	&.--exit {
+		animation: fade-out-bck 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	}
 }
+
 
 @keyframes slide-in-left {
   0% {
@@ -41,6 +50,17 @@
     -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes fade-out-bck {
+  0% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(-80px);
+    opacity: 0;
   }
 }
 

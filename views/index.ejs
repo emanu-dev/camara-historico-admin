@@ -9,7 +9,28 @@
 </head>
 <body>
 
-	<main class='login'>
+    <% if (error && error.length > 0) {%>
+    </div>
+      <div class="ui negative message --enter">
+        <p class="close icon">X</p>
+        <div class="header">
+          <%= error %>
+        </div>
+      </div>        
+    <% }%>
+    
+    <% if (success && success.length > 0) {%>
+    </div>
+      <div class="ui positive message --enter">
+        <p class="close icon">X</p>
+        <div class="header">
+          <%= success %>
+        </div>
+      </div>        
+    <% }%>
+
+
+	<main class='login'>		
 		<form class="ui form login__form" action='/login' method="POST">
 		  <div class="field">
 		    <label>Email</label>
@@ -22,6 +43,16 @@
 		  <button class="ui button" type="submit">Fazer login</button>
 		</form>
 	</main>
+
+    <script>
+    	if (document.querySelector('.message') != null) {
+          document.querySelector('.message .close').addEventListener('click', function(e) {
+          	this.parentNode.classList.remove('--enter');
+          	this.parentNode.offsetWidth;
+          	this.parentNode.classList.add('--exit');
+          });
+    	}  
+    </script>
 
 </body>
 </html>

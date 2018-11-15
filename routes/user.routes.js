@@ -40,10 +40,11 @@ router.get('/login', isNotLoggedIn, (req, res) => {
 
 router.post('/login', passport.authenticate('local', 
     {
+        failureFlash: 'Não foi possível realizar o login, por favor verifique seu usuário e senha.',
+        successFlash: 'Bem vindo!',
         successRedirect: '/people',
-        failureRedirect: '/',
+        failureRedirect: '/'
     }), (req, res) => {
-
         // console.log('Não foi possível realizar o login, por favor verifique seu usuário e senha');
 });
 

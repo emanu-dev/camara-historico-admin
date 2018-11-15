@@ -143,8 +143,10 @@ router.put('/people/:id', isLoggedIn, (req, res) => {
 					modifiedAt: new Date()
 				}}, (err, updatedPerson) => {
 					if (err) {
+						req.flash('error', 'Não foi possível atualizar os dados');
 						res.redirect(`/people/${req.params.id}`);
 					}else {
+						req.flash('success', 'Dados atualizados com sucesso!');
 						res.redirect(`/people/${req.params.id}`);
 					}
 				});
@@ -157,8 +159,10 @@ router.put('/people/:id', isLoggedIn, (req, res) => {
 				modifiedAt: new Date()
 			}}, (err, updatedPerson) => {
 				if (err) {
+					req.flash('error', 'Não foi possível atualizar os dados');
 					res.redirect(`/people/${req.params.id}`);
 				}else {
+					req.flash('success', 'Dados atualizados com sucesso!');
 					res.redirect(`/people/${req.params.id}`);
 				}
 			});

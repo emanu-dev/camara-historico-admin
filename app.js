@@ -7,6 +7,7 @@ const cors = require('cors');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -20,6 +21,7 @@ const User = require('./models/user.model');
 
 app.use(cors());
 app.set('view engine', 'ejs');
+app.use(flash());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +43,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    console.log(req.user);
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     res.locals.currentUser = req.user;
     next();
 });
