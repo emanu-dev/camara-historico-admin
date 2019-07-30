@@ -1,0 +1,17 @@
+.login {
+	align-items: center;
+	background: url("../../images/login.jpg") center / cover no-repeat;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	width: 100%;
+
+	.login__form {
+		background-color: rgba(#ffffff, .4);
+		border: 1px solid rgba(#eeeeee, .8);
+		border-radius: 1rem;
+		padding: 2rem;
+		min-width: 30%;
+	}	
+}
+

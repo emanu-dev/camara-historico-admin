@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">    
+    <title>Admin Câmara</title>
+        <link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>    
+    </head>
+    <body>
+        <div class='ui fixed inverted menu'>
+            <div class='ui container'>
+                <div class='header item'> <img src="/images/icon.png" alt="">História da Câmara</div>
+                <a href='/people' class='item'>Pessoas</a>
+                <a href='/places' class='item'>Locais</a>
+            </div>
+          <div class="right menu">
+            <a class="ui item" href='/logout'>
+              Sair
+            </a>
+          </div>            
+        </div>
+
+        <% if (error && error.length > 0) {%>
+        </div>
+          <div class="ui negative message --enter">
+            <p class="close icon">X</p>
+            <div class="header">
+              <%= error %>
+            </div>
+          </div>        
+        <% }%>
+        
+        <% if (success && success.length > 0) {%>
+        </div>
+          <div class="ui positive message --enter">
+            <p class="close icon">X</p>
+            <div class="header">
+              <%= success %>
+            </div>
+          </div>        
+        <% }%>
+        
+      <script>
+        if (document.querySelector('.message') != null) {
+            document.querySelector('.message .close').addEventListener('click', function(e) {
+              this.parentNode.classList.remove('--enter');
+              this.parentNode.offsetWidth;
+              this.parentNode.classList.add('--exit');
+            });
+        }  
+      </script>

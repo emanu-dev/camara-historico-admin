@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<main class="ui main show text container segment">
+	
+	<h1>Detalhes</h1>
+	<div class="ui show__card shape">
+	  <div class="sides">
+	    <div class="active side">
+	      <div class="ui card">
+	        <div class="image">
+	          <div class='main-image' id='main-image' style='background-image: url(<%= place.picture %>)'></div>
+	        </div>
+	        <div class="content">
+	          <div class="header"><%= place.name%></div>
+	          <div class="description">
+	            <%=place.text%>
+	          </div>
+	        </div>
+	        <div class="extra content">
+
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class='show__bottom'>
+		<a class='ui teal basic button' href="/places/<%= place._id %>/edit">Editar</a>
+		<a class='ui purple basic button' href="/places">Voltar</a>
+	</div>
+</main>
+
+<% include ../partials/footer %>
