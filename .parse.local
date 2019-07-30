@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "CamaraHistorico": {
+      "applicationId": "V8kwmsfEHz0HA0SYmKdydESBs5WOo8t5sjBHvJU0"
+    },
+    "_default": {
+      "link": "CamaraHistorico"
+    }
+  }
+}
