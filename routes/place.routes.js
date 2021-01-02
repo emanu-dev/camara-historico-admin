@@ -13,9 +13,9 @@ const Places = require('../models/place.model.js');
 const path = 'http://camaraitapetininga.netlify.com/?data=historia&id=';
 
 cloudinary.config({
-	cloud_name: 'du4ylhbnk',
-	api_key: '663459838219162', 
-	api_secret: '2657rKR89tYHYKOZ5xPKvZd4ZMM'
+	cloud_name: process.env.CLOUD_NAME,
+	api_key: process.env.API_KEY,
+	api_secret: process.env.API_SECRET
 });
 
 router.get('/showplace/:id', (req, res) => {

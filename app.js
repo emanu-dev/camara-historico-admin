@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGO, { useNewUrlParser: true });
 app.use(methodOverride('_method'));
 
 app.use(require('express-session') ({
-	secret: 'lalulilelo',
+	secret: process.env.EXPRESS_SECRET,
 	resave: false,
 	saveUninitialized: false
 }));
