@@ -26,9 +26,9 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
-app.use(methodOverride('_method'));
+mongoose.connect(process.env.MONGO, { useNewUrlParser: true });
 
-mongoose.connect('mongodb://admin:camara1771@cluster0-shard-00-00.eyfyv.mongodb.net:27017,cluster0-shard-00-01.eyfyv.mongodb.net:27017,cluster0-shard-00-02.eyfyv.mongodb.net:27017/camara-itapetininga?ssl=true&replicaSet=atlas-xj6sy1-shard-0&authSource=admin&retryWrites=true&w=majority', { useNewUrlParser: true });
+app.use(methodOverride('_method'));
 
 app.use(require('express-session') ({
 	secret: 'lalulilelo',
