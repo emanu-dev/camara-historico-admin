@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "8.17.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "node-sass --source-map true -w public/stylesheets/scss/ -o public/stylesheets/ --output-style compressed",
